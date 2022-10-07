@@ -19,6 +19,10 @@ def run():
         piso_destino = int(input("Hasta que piso quiere ir? (0-8)")) 
         ascensor1.cambiar_piso(ascensor1,piso_destino)
         option = input("Desea seguir subiendo o bajando pisos? (Y/N)")
+        while option == "Y":
+            piso_destino = int(input("Hasta que piso quiere ir? (0-8)")) 
+            ascensor1.cambiar_piso(ascensor1,piso_destino)
+
     if user_input == "2":
         ascensor1.stop()
     if user_input == "3":
