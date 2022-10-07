@@ -6,12 +6,10 @@ class Ascensor:
     def __init__(self, piso_actual):
         self.piso_actual = piso_actual
         self.estado_actual = "parado"
-        self.pisos = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+        self.pisos = [-1,-2,0, 1, 2, 3, 4, 5, 6, 7, 8]
 
     def subir_pisos(self, piso_actual, piso_destino):
-        if piso_destino > self.pisos[-1] or piso_destino < self.pisos[0]:
-            print("🚨🚨🚨ERROR🚨🚨🚨")
-            exit()
+        
         for i in self.pisos:
             self.estado_actual = "Subiendo"
             time.sleep(2)
@@ -28,7 +26,10 @@ class Ascensor:
         #self.piso_actual = piso_actual
 
     def cambiar_piso(self, ascensor, piso_destino):
-
+        if piso_destino > self.pisos[-1] or piso_destino < self.pisos[0]:
+            print("🚨🚨🚨ERROR🚨🚨🚨")
+            exit()
+            
         if piso_destino > ascensor.piso_actual:
             ascensor.subir_pisos(ascensor.piso_actual, piso_destino)
         else:
@@ -66,5 +67,5 @@ class Ascensor:
 if __name__ == '__main__':
     ascensor1 = Ascensor(1)
     ascensor1.emergency_call()
-    ascensor2 = Ascensor(7)
-    ascensor2.bajar_pisos(ascensor2.piso_actual, 2)
+    ascensor2 = Ascensor(0)
+    ascensor2.bajar_pisos(ascensor2.piso_actual, -7)
